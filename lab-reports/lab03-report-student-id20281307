@@ -176,15 +176,19 @@ if __name__ == '__main__':
 
 ### Головна сторінка
 
-![Головна сторінка](шлях/до/скріншоту)
+![Головна сторінка]
+(https://github.com/Armovolt/lab3-flask-webapp/blob/cb18f1ae153d27206e07c21297c2cf4d55343207/lab-reports/home.png)
 
 ### Сторінка "Про нас"
 
-![Сторінка Про нас](шлях/до/скріншоту)
+![Сторінка Про нас]
+(https://github.com/Armovolt/lab3-flask-webapp/blob/cb18f1ae153d27206e07c21297c2cf4d55343207/lab-reports/about.png)
 
 ### Додаткові сторінки
 
-![Додаткова сторінка](шлях/до/скріншоту)
+![Додаткова сторінка]
+(https://github.com/Armovolt/lab3-flask-webapp/blob/cb18f1ae153d27206e07c21297c2cf4d55343207/lab-reports/books.png)
+(https://github.com/Armovolt/lab3-flask-webapp/blob/cb18f1ae153d27206e07c21297c2cf4d55343207/lab-reports/reviews.png)
 
 
 ### Висновки
