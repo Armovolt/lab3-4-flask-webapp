@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Відгуки - BookHub{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-amber-800 mb-8 text-center">Відгуки читачів</h1>
+
+    <!-- Форма додавання відгуку -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Залишити відгук</h2>
+        <form class="space-y-4">
+            <input type="text" placeholder="Ваше ім'я" class="w-full p-3 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+            <select class="w-full p-3 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                <option>Оберіть книгу</option>
+                <option>Хіба що хтось стукне у двері</option>
+                <option>Проєкт "Розі"</option>
+                <option>Чотири вітри</option>
+            </select>
+            <div class="flex space-x-2">
+                <span class="text-gray-600">Оцінка:</span>
+                <div class="flex text-amber-300">
+                    <i class="far fa-star hover:text-amber-400 cursor-pointer"></i>
+                    <i class="far fa-star hover:text-amber-400 cursor-pointer"></i>
+                    <i class="far fa-star hover:text-amber-400 cursor-pointer"></i>
+                    <i class="far fa-star hover:text-amber-400 cursor-pointer"></i>
+                    <i class="far fa-star hover:text-amber-400 cursor-pointer"></i>
+                </div>
+            </div>
+            <textarea placeholder="Ваш відгук..." rows="4" class="w-full p-3 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"></textarea>
+            <button type="submit" class="bg-amber-600 text-white px-6 py-3 rounded-lg hover:bg-amber-700 transition font-semibold">
+                <i class="fas fa-paper-plane mr-2"></i>Надіслати відгук
+            </button>
+        </form>
+    </div>
+
+    <!-- Відгуки -->
+    <div class="space-y-6">
+        <!-- Відгук 1 -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="font-semibold text-lg">Марія</h3>
+                    <p class="text-amber-600">Про книгу "Чотири вітри"</p>
+                </div>
+                <div class="flex text-amber-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+            <p class="text-gray-700">Не можу відірватися! Ця книга вразила мене глибиною персонажів та емоційністю. Авторка майстерно передає атмосферу того часу. Рекомендую всім!</p>
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-gray-500 text-sm">2 дні тому</span>
+                <button class="text-amber-600 hover:text-amber-800 text-sm"><i class="fas fa-thumbs-up mr-1"></i>Корисно</button>
+            </div>
+        </div>
+
+        <!-- Відгук 2 -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="font-semibold text-lg">Олексій</h3>
+                    <p class="text-amber-600">Про книгу "Проєкт 'Розі'"</p>
+                </div>
+                <div class="flex text-amber-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+            </div>
+            <p class="text-gray-700">Цікава наукова фантастика з гарним гумором. Хоча дещо передбачуваний сюжет, але читається на одному подиху. Ідеально для любителів космосу.</p>
+            <div class="flex justify-between items-center mt-4">
+                <span class="text-gray-500 text-sm">1 тиждень тому</span>
+                <button class="text-amber-600 hover:text-amber-800 text-sm"><i class="fas fa-thumbs-up mr-1"></i>Корисно</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

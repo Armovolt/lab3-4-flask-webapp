@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Головна - BookHub{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <!-- Герой секція -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 text-center">
+        <h1 class="text-5xl font-bold text-amber-800 mb-4">Ласкаво просимо до BookHub!</h1>
+        <p class="text-xl text-gray-700 mb-6">Відкривай нові світи через сторінки книг разом з нами</p>
+        <div class="bg-amber-100 inline-block p-4 rounded-lg">
+            <p class="text-amber-800 font-semibold"><i class="fas fa-quote-left mr-2"></i>Книги - це літак, і потяг, і дорога. Вони - призначення і шлях. Вони - дім.<i class="fas fa-quote-right ml-2"></i></p>
+        </div>
+    </div>
+
+    <!-- Особливості -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <i class="fas fa-book-open text-4xl text-amber-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Читай</h3>
+            <p class="text-gray-600">Відкривай для себе нові історії та знання</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <i class="fas fa-users text-4xl text-amber-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Ділися</h3>
+            <p class="text-gray-600">Обговорюй прочитане з однодумцями</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <i class="fas fa-star text-4xl text-amber-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Оцінюй</h3>
+            <p class="text-gray-600">Залишай відгуки про улюблені книги</p>
+        </div>
+    </div>
+
+    <!-- Останні додавання -->
+    <div class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-3xl font-bold text-amber-800 mb-6 text-center">Останні надходження</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="border border-amber-200 rounded-lg p-4 hover:shadow-md transition">
+                <h4 class="font-semibold text-lg mb-2">"Хіба що хтось стукне у двері"</h4>
+                <p class="text-gray-600 text-sm mb-2">Стівен Кінг</p>
+                <div class="flex text-amber-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+            <div class="border border-amber-200 rounded-lg p-4 hover:shadow-md transition">
+                <h4 class="font-semibold text-lg mb-2">"Проєкт "Розі"</h4>
+                <p class="text-gray-600 text-sm mb-2">Енді Вейр</p>
+                <div class="flex text-amber-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="border border-amber-200 rounded-lg p-4 hover:shadow-md transition">
+                <h4 class="font-semibold text-lg mb-2">"Чотири вітри"</h4>
+                <p class="text-gray-600 text-sm mb-2">Крістін Ханна</p>
+                <div class="flex text-amber-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

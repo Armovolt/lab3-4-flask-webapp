@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BookHub - Книжкова спільнота{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-amber-50">
+    <!-- Навігація -->
+    <nav class="bg-amber-800 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <a href="/" class="text-2xl font-bold mb-4 md:mb-0">
+                <i class="fas fa-book mr-2"></i>BookHub
+            </a>
+            <div class="space-x-4 text-center">
+                <a href="/" class="hover:text-amber-200 px-3 py-2 rounded transition">Головна</a>
+                <a href="/about" class="hover:text-amber-200 px-3 py-2 rounded transition">Про нас</a>
+                <a href="/books" class="hover:text-amber-200 px-3 py-2 rounded transition">Книги</a>
+                <a href="/reviews" class="hover:text-amber-200 px-3 py-2 rounded transition">Відгуки</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основний контент -->
+    <main class="container mx-auto mt-8 p-4 min-h-screen">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-amber-900 text-white p-6 mt-8">
+        <div class="container mx-auto text-center">
+            <div class="mb-4">
+                <i class="fas fa-book text-3xl mb-2"></i>
+                <p class="text-xl font-bold">BookHub</p>
+                <p class="text-amber-200">Твоя книжкова спільнота</p>
+            </div>
+            <p>&copy; 2024 BookHub | Команда "Ardoes". Всі права захищено.</p>
+        </div>
+    </footer>
+</body>
+</html>

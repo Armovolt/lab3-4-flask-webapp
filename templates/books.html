@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Книги - BookHub{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold text-amber-800 mb-8 text-center">Наша колекція книг</h1>
+
+    <!-- Фільтри -->
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <div class="flex flex-wrap gap-4 justify-center">
+            <button class="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition">Всі</button>
+            <button class="bg-amber-100 px-4 py-2 rounded-lg hover:bg-amber-200 transition">Фантастика</button>
+            <button class="bg-amber-100 px-4 py-2 rounded-lg hover:bg-amber-200 transition">Детективи</button>
+            <button class="bg-amber-100 px-4 py-2 rounded-lg hover:bg-amber-200 transition">Романи</button>
+            <button class="bg-amber-100 px-4 py-2 rounded-lg hover:bg-amber-200 transition">Біографії</button>
+        </div>
+    </div>
+
+    <!-- Книги -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Книга 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+            <div class="bg-amber-200 p-4 text-center">
+                <i class="fas fa-book text-6xl text-amber-700"></i>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Хіба що хтось стукне у двері</h3>
+                <p class="text-gray-600 mb-2">Стівен Кінг</p>
+                <p class="text-sm text-gray-500 mb-4">Збірник оповідань</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex text-amber-400">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">4.5/5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Книга 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+            <div class="bg-amber-200 p-4 text-center">
+                <i class="fas fa-book text-6xl text-amber-700"></i>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Проєкт "Розі"</h3>
+                <p class="text-gray-600 mb-2">Енді Вейр</p>
+                <p class="text-sm text-gray-500 mb-4">Наукова фантастика</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex text-amber-400">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">4.0/5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Книга 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
+            <div class="bg-amber-200 p-4 text-center">
+                <i class="fas fa-book text-6xl text-amber-700"></i>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Чотири вітри</h3>
+                <p class="text-gray-600 mb-2">Крістін Ханна</p>
+                <p class="text-sm text-gray-500 mb-4">Історична драма</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex text-amber-400">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">5.0/5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
