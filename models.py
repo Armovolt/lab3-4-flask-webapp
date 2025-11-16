@@ -9,8 +9,12 @@ class Feedback(db.Model):
     email = db.Column(db.String(100))
     message = db.Column(db.Text, nullable=False)
     rating = db.Column(db.Integer, default=5)
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'))  # Зв'язок з книгою
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     is_approved = db.Column(db.Boolean, default=False)
+    
+    # Зв'язок з книгою
+    book = db.relationship('Book', backref=db.backref('feedbacks', lazy=True))
 
     def __repr__(self):
         return f'<Feedback {self.name}>'

@@ -100,15 +100,23 @@ def reviews():
         email = request.form['email']
         message = request.form['message']
         rating = int(request.form.get('rating', 5))
+        book_id = request.form.get('book_id')
         
-        feedback = Feedback(name=name, email=email, message=message, rating=rating)
+        feedback = Feedback(
+            name=name,
+            email=email,
+            message=message,
+            rating=rating,
+            book_id=book_id if book_id else None
+        )
         db.session.add(feedback)
         db.session.commit()
         flash('Дякуємо за ваш відгук! Він буде опублікований після перевірки.', 'success')
         return redirect(url_for('reviews'))
     
     approved_feedbacks = Feedback.query.filter_by(is_approved=True).order_by(Feedback.created_at.desc()).all()
-    return render_template('reviews.html', feedbacks=approved_feedbacks)
+    books = Book.query.all()
+    return render_template('reviews.html', feedbacks=approved_feedbacks, books=books)
 
 # Маршрути магазину
 @app.route('/add_to_cart/<int:book_id>')

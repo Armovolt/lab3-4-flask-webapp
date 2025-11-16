@@ -12,9 +12,19 @@
             {% for feedback in feedbacks %}
             <div class="border border-amber-200 rounded-lg p-4 {% if not feedback.is_approved %}bg-yellow-50{% endif %}">
                 <div class="flex justify-between items-start mb-2">
-                    <div>
+                    <div class="flex-1">
                         <h3 class="font-semibold text-lg">{{ feedback.name }}</h3>
                         <p class="text-amber-600">{{ feedback.email if feedback.email else "Анонім" }}</p>
+                        
+                        {% if feedback.book %}
+                        <p class="text-blue-600 text-sm mt-1">
+                            <i class="fas fa-book mr-1"></i>Про книгу: "<strong>{{ feedback.book.title }}</strong>" - {{ feedback.book.author }}
+                        </p>
+                        {% else %}
+                        <p class="text-gray-500 text-sm mt-1">
+                            <i class="fas fa-store mr-1"></i>Загальний відгук про магазин
+                        </p>
+                        {% endif %}
                     </div>
                     <div class="flex items-center space-x-2">
                         <div class="flex text-amber-400">
@@ -29,7 +39,9 @@
                         <span class="text-gray-500 text-sm">{{ feedback.created_at.strftime('%d.%m.%Y %H:%M') }}</span>
                     </div>
                 </div>
+                
                 <p class="text-gray-700 mb-4">{{ feedback.message }}</p>
+                
                 <div class="flex justify-between items-center">
                     <span class="px-3 py-1 rounded text-sm 
                         {% if feedback.is_approved %}bg-green-100 text-green-800
@@ -39,14 +51,14 @@
                     <div class="space-x-2">
                         {% if not feedback.is_approved %}
                         <a href="{{ url_for('approve_feedback', feedback_id=feedback.id) }}" 
-                           class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                            Схвалити
+                           class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                            <i class="fas fa-check mr-1"></i>Схвалити
                         </a>
                         {% endif %}
                         <a href="{{ url_for('delete_feedback', feedback_id=feedback.id) }}" 
-                           class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+                           class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
                            onclick="return confirm('Ви впевнені, що хочете видалити цей відгук?')">
-                            Видалити
+                            <i class="fas fa-trash mr-1"></i>Видалити
                         </a>
                     </div>
                 </div>
