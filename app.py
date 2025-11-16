@@ -11,56 +11,59 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 # Ініціалізація бази даних з тестовими даними
-@app.before_first_request
-def create_tables():
-    db.create_all()
-    # Додаємо тестові книги якщо їх немає
-    if Book.query.count() == 0:
-        sample_books = [
-            Book(
-                title="Хіба що хтось стукне у двері", 
-                author="Стівен Кінг", 
-                description="Збірник оповідань від короля жахів. 12 історій, що вражають глибиною та непередбачуваністю.",
-                price=350.0, 
-                category="Фантастика",
-                image_url="/static/images/book1.jpg"
-            ),
-            Book(
-                title="Проєкт 'Розі'", 
-                author="Енді Вейр", 
-                description="Наукова фантастика від автора 'Марсіянина'. Захоплива історія про космічні пригоди.",
-                price=280.0, 
-                category="Фантастика",
-                image_url="/static/images/book2.jpg"
-            ),
-            Book(
-                title="Чотири вітри", 
-                author="Крістін Ханна", 
-                description="Історична драма про силу родинних зв'язків у складні часи.",
-                price=320.0, 
-                category="Драма",
-                image_url="/static/images/book3.jpg"
-            ),
-            Book(
-                title="Гаррі Поттер і філософський камінь", 
-                author="Дж. К. Роулінг", 
-                description="Перша книга знаменитої серії про молодого чарівника.",
-                price=290.0, 
-                category="Фентезі",
-                stock_quantity=15
-            ),
-            Book(
-                title="Війна і мир", 
-                author="Лев Толстой", 
-                description="Класика світової літератури про долі людей під час наполеонівських воєн.",
-                price=420.0, 
-                category="Класика",
-                stock_quantity=8
-            )
-        ]
-        db.session.bulk_save_objects(sample_books)
-        db.session.commit()
-        print("Тестові книги додані до бази даних!")
+def init_db():
+    with app.app_context():
+        db.create_all()
+        # Додамо тестові книги якщо їх немає
+        if Book.query.count() == 0:
+            sample_books = [
+                Book(
+                    title="Хіба що хтось стукне у двері", 
+                    author="Стівен Кінг", 
+                    description="Збірник оповідань від короля жахів. 12 історій, що вражають глибиною та непередбачуваністю.",
+                    price=350.0, 
+                    category="Фантастика",
+                    image_url="/static/images/book1.jpg"
+                ),
+                Book(
+                    title="Проєкт 'Розі'", 
+                    author="Енді Вейр", 
+                    description="Наукова фантастика від автора 'Марсіянина'. Захоплива історія про космічні пригоди.",
+                    price=280.0, 
+                    category="Фантастика",
+                    image_url="/static/images/book2.jpg"
+                ),
+                Book(
+                    title="Чотири вітри", 
+                    author="Крістін Ханна", 
+                    description="Історична драма про силу родинних зв'язків у складні часи.",
+                    price=320.0, 
+                    category="Драма",
+                    image_url="/static/images/book3.jpg"
+                ),
+                Book(
+                    title="Гаррі Поттер і філософський камінь", 
+                    author="Дж. К. Роулінг", 
+                    description="Перша книга знаменитої серії про молодого чарівника.",
+                    price=290.0, 
+                    category="Фентезі",
+                    stock_quantity=15
+                ),
+                Book(
+                    title="Війна і мир", 
+                    author="Лев Толстой", 
+                    description="Класика світової літератури про долі людей під час наполеонівських воєн.",
+                    price=420.0, 
+                    category="Класика",
+                    stock_quantity=8
+                )
+            ]
+            db.session.bulk_save_objects(sample_books)
+            db.session.commit()
+            print("Тестові книги додані до бази даних!")
+
+# Викликаємо ініціалізацію бази даних при запуску додатка
+init_db()
 
 # Головні маршрути
 @app.route('/')
@@ -318,6 +321,4 @@ def admin_customers():
     return render_template('admin/customers.html', customers=customers)
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
